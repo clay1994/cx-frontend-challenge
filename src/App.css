@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  color: #333;
+  margin: 1%;
+}
+
+input, select, button {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+li button {
+  margin-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2%;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+nav a {
+  margin: 0 1rem;
+}
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-list button {
+  margin-left: auto;
+}
+
+.button-float-right {
+  float: right;
+  margin-left: 10px; 
+}
+
+.add-user-btn {
+  margin-left: 2%;
+}
