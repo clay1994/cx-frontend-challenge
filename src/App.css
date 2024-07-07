@@ -94,3 +94,40 @@ nav a {
 .add-user-btn {
   margin-left: 2%;
 }
+
+.user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-left: 1%;
+}
+
+.form-group input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.form-checkbox {
+  margin: 1%;
+  padding: 8px;
+}
+
+.form-btn {
+  margin: 1%;
+  padding: 8px;
+}
+

@@ -77,67 +77,67 @@ const Users = () => {
       {isEditing ? (
         <form onSubmit={handleFormSubmit}>
           <h2>{currentUser ? 'Edit User' : 'Add User'}</h2>
-          <div>
+          <div className="form-group">
             <label>Name:</label>
             <input name="name" defaultValue={currentUser ? currentUser.name : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Username:</label>
             <input name="username" defaultValue={currentUser ? currentUser.username : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Email:</label>
             <input name="email" defaultValue={currentUser ? currentUser.email : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Street:</label>
             <input name="street" defaultValue={currentUser ? currentUser.address.street : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Suite:</label>
             <input name="suite" defaultValue={currentUser ? currentUser.address.suite : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>City:</label>
             <input name="city" defaultValue={currentUser ? currentUser.address.city : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Zipcode:</label>
             <input name="zipcode" defaultValue={currentUser ? currentUser.address.zipcode : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Lat:</label>
             <input name="lat" defaultValue={currentUser ? currentUser.address.geo.lat : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Lng:</label>
             <input name="lng" defaultValue={currentUser ? currentUser.address.geo.lng : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Phone:</label>
             <input name="phone" defaultValue={currentUser ? currentUser.phone : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Website:</label>
             <input name="website" defaultValue={currentUser ? currentUser.website : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Company Name:</label>
             <input name="companyName" defaultValue={currentUser ? currentUser.company.name : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>CatchPhrase:</label>
             <input name="catchPhrase" defaultValue={currentUser ? currentUser.company.catchPhrase : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>BS:</label>
             <input name="bs" defaultValue={currentUser ? currentUser.company.bs : ''} />
           </div>
-          <div>
+          <div className="form-group">
             <label>Role:</label>
             <input name="role" defaultValue={currentUser ? currentUser.role : ''} />
           </div>
-          <div>
+          <div className="form-checkbox">
             <label>Permissions:</label>
             <div>
               <label>
@@ -170,7 +170,7 @@ const Users = () => {
               </label>
             </div>
           </div>
-          <button type="submit">Save</button>
+          <button className='form-btn' type="submit">Save</button>
           <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
         </form>
       ) : (

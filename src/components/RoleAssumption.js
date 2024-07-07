@@ -3,7 +3,7 @@ import { UserContext } from '../contexts/UserContext';
 import { BrowserRouter as Router, Routes, Link } from 'react-router-dom';
 
 const RoleAssumption = () => {
-  const { users } = useContext(UserContext);
+  const { users, setUsers } = useContext(UserContext);
   const [admin, setAdmin] = useState(null);
 
   useEffect(() => {
@@ -13,9 +13,24 @@ const RoleAssumption = () => {
   }, [users]);
 
   const assumeRole = (user) => {
-    if (admin) {
-      alert(`${admin.name} has assumed the role of ${user.name}`);
-    }
+    setUsers(prevUsers => {
+      const updatedUsers = [...prevUsers];
+      const adminIndex = updatedUsers.findIndex(user => user.id === admin.id);
+      const userIndex = updatedUsers.findIndex(u => u.id === user.id);
+
+      if (adminIndex !== -1 && userIndex !== -1) {
+        const admin = updatedUsers[adminIndex];
+        const user = updatedUsers[userIndex];
+
+        // Swap roles
+        const tempRole = admin.role;
+        admin.role = user.role;
+        user.role = tempRole;
+
+        alert(`${admin.name} has assumed the role of ${user.name}`);
+      };
+      return updatedUsers;
+    })
   };
 
   if (!admin) {
