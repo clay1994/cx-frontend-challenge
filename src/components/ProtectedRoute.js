@@ -1,21 +1,17 @@
 import React, { useContext } from 'react';
-import { Route, Navigate  } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
-const ProtectedRoute = ({ component: Component, permission, ...rest }) => {
+const ProtectedRoute = ({ element: Element, permission, ...rest }) => {
   const { currentUser } = useContext(UserContext);
 
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        currentUser && currentUser.permissions[permission] ? (
-          <Component {...props} />
-        ) : (
-          <Navigate to="/" />
-        )
-      }
-    />
+  console.log('current user');
+  console.log(currentUser);
+
+  return currentUser && currentUser.permissions[permission] ? (
+    <Element {...rest} />
+  ) : (
+    <Navigate to="/" />
   );
 };
 

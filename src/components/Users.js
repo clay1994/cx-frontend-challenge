@@ -7,6 +7,7 @@ const Users = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const handleAdd = () => {
+    console.log(users);
     setIsEditing(true);
     setCurrentUser(null);
   };
