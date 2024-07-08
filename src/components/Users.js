@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
+import { json } from 'react-router-dom';
 
 const Users = () => {
-  const { users, setUsers } = useContext(UserContext);
+  const { users, setUsers, currentUser, setCurrentUser } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
 
   const handleAdd = () => {
     console.log(users);
@@ -71,6 +71,11 @@ const Users = () => {
 
     setIsEditing(false);
   };
+
+  useEffect(() => {
+    console.log('current user');
+    console.log(currentUser);
+  }, [currentUser]);
 
   return (
     <>
@@ -176,7 +181,13 @@ const Users = () => {
         </form>
       ) : (
         <>
-          <button className="btn btn-success btn-sm mr-2 add-user-btn" onClick={handleAdd}>Add User</button>
+          <div>
+            {currentUser?.permissions?.CanCreateUser && (
+              <button className="btn btn-success btn-sm mr-2 add-user-btn" onClick={handleAdd}>
+                Add User
+              </button>
+            )}
+          </div>
           <div className="table-responsive">
             <table className="table table-striped">
               <thead>
@@ -196,18 +207,23 @@ const Users = () => {
                     <td>{user.email}</td>
                     <td>{user.website}</td>
                     <td>
-                      <button
-                        className="btn btn-primary btn-sm mr-2"
-                        onClick={() => handleEdit(user)}
-                      >
-                        Edit User
-                      </button>
-                      <button
-                        className="btn btn-danger btn-sm"
-                        onClick={() => handleDelete(user)}
-                      >
-                        Delete User
-                      </button>
+                      {currentUser?.permissions?.CanUpdateUser && (
+                        <button
+                          className="btn btn-primary btn-sm mr-2"
+                          onClick={() => handleEdit(user)}
+                        >
+                          Edit User
+                        </button>
+                      )}
+
+                      {currentUser?.permissions?.CanDeleteUser && (                
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => handleDelete(user)}
+                        >
+                          Delete User
+                        </button>
+                      )} 
                     </td>
                   </tr>
                 ))}
