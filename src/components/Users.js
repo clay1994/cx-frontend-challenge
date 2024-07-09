@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import { json } from 'react-router-dom';
 
 const Users = () => {
   const { users, setUsers, currentUser, setCurrentUser } = useContext(UserContext);
@@ -196,7 +195,9 @@ const Users = () => {
                   <th>Role</th>
                   <th>Email</th>
                   <th>Website</th>
-                  <th>Actions</th>
+                  {currentUser?.permissions?.CanUpdateUser || currentUser?.permissions?.CanDeleteUser ? (
+                    <th>Actions</th>
+                  ) : null}
                 </tr>
               </thead>
               <tbody>
